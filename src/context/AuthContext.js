@@ -1,0 +1,45 @@
+import { onAuthStateChanged } from 'firebase/auth';
+import { createContext, useEffect, useReducer } from 'react';
+import { appAuth } from '../firebase/config';
+
+const AuthContext = createContext();
+
+const authReducer = (state, action) => {
+    switch (action.type) {
+        case 'login':
+            return { ...state, user: action.payload } // (...)전개구문을 이용해 객체의 user 값을 업데이트 한다. 
+        case 'logout':
+            return { ...state, user: null }
+        case 'isAuthReady':
+            return { ...state, user: action.payload, isAuthReady: true }
+        default:
+            return state
+    }
+} //객체화 된 데이터를 다룰 땐 Reducer 사용
+
+const AuthContextProvider = ({ children }) => {
+
+    const [state, dispatch] = useReducer(authReducer, {
+        user: null,
+        isAuthReady: false
+    })
+
+    useEffect(() => {
+        // onAuthStateChanged : 유저의 인증정보 변화를 관찰하는 함수입니다.
+        // onAuthStateChanged 함수는 Unsubscribe 함수를 반환합니다. 더 이상 유저의 변화를 관찰하지 않도록 하는 함수입니다. 
+            // 우리는 새로고침 후 초기에 딱 한번 실행하면 되기 때문에 이후에는 구독을 중지합니다.
+        const unsubscribe = onAuthStateChanged(appAuth, (user) => {
+            dispatch({ type: 'isAuthReady', payload: user });
+        })
+        return unsubscribe
+    }, [])
+
+    console.log('user state : ', state)
+    return (
+        <AuthContext.Provider value={{ ...state, dispatch }}>
+            { children }
+        </AuthContext.Provider>
+    )
+}
+
+export { AuthContext, AuthContextProvider }
