@@ -1,7 +1,6 @@
-//import { Transaction } from "firebase/firestore"
 import { collection, addDoc } from "firebase/firestore"
 import { useReducer } from "react"
-import { appFireStore,timestamp } from "../firebase/config"
+import { appFireStore, timestamp } from "../firebase/config"
 
 
 const initState = {
@@ -25,7 +24,7 @@ const storeReducer = (state, action) => {
 }
 
 export const useFireStroe = (transaction) => {
-    const [reponse, dispatch] = useReducer(storeReducer, initState)
+    const [response, dispatch] = useReducer(storeReducer, initState)
     
     // colRef : 컬렉션의 참조를 요구한다.
     const colRef = collection(appFireStore, transaction);
@@ -49,5 +48,5 @@ export const useFireStroe = (transaction) => {
 
     }
 
-    return { addDocument, deleteDocument, reponse }
+    return { addDocument, deleteDocument, response }
 }
