@@ -24,7 +24,7 @@ export default function DiaryForm({ uid }) {
 
     const handelSubmit = (event) => {
         event.preventDefault();
-        console.log(title, text);
+        // console.log(title, text);
         addDocument({ uid, title, text });
     }
 
@@ -34,7 +34,7 @@ export default function DiaryForm({ uid }) {
         <>
             <form onSubmit={handelSubmit}>
                 <fieldset>
-                    <legend>일기쓰기</legend>
+                    <legend>메모쓰기</legend>
                     <label htmlFor="tit">일기 제목 : </label>
                     <input id="tit" type='text' value={title} required onChange={handleDate}/>
 

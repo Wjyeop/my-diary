@@ -38,7 +38,7 @@ export const useFireStroe = (transaction) => {
         try {
             const createdTime = timestamp.fromDate(new Date());
             const docRef = await addDoc(colRef, { ...doc, createdTime });
-            console.log(docRef);
+            // console.log(docRef);
             dispatch({ type: "addDoc", payload: docRef });
         } catch (error) {
             dispatch({ type: "error", payload: error.message });

@@ -8,7 +8,7 @@ export default function Home() {
 
     const { user } = useAuthContext();
     const { document, error } = useCollection('diary', ["uid","==", user.uid]);
-
+    console.log(document)
     return (
         <main className={styles.cont}>
             <aside className={styles.side_menu}>

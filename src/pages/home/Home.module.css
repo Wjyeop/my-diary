@@ -8,7 +8,7 @@
 
 .side_menu form {
     padding: 20px;
-    background-color: teal;
+    background-color: royalblue;
     border-radius: 10px;
 }
 
@@ -55,7 +55,11 @@
 }
 
 .content_list {
-    margin: 0;
+    border: 4px solid #f2f2f2;
+    padding: 0;
+    margin: 0 0 0 30px;
+    /* background-color: aqua; */
+    /* margin: 0; */
 }
 
 .content_list li {
@@ -63,7 +67,7 @@
     box-shadow: 3px 3px 5px rgba(50, 50, 50, .1);
     padding: 30px;
     position: relative;
-    border-left: 4px solid teal;
+    border-left: 4px solid royalblue;
 }
 
 .content_list li + li {
@@ -82,7 +86,7 @@
     position: absolute;
     top:0;
     right: 0;;
-    background-color: teal;
+    background-color: royalblue;
     border: none;
     color: #fff;
     padding: 12px 8px;

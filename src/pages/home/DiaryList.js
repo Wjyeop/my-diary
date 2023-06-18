@@ -7,7 +7,7 @@ export default function DiaryList({ diaries }) {
         <>
             {
                 diaries.map((item) => {
-                    console.log(item)
+                    // console.log(item)
                     return (
                         <li key={item.id}>
                             <strong className={styles.title}>{item.title}</strong>
