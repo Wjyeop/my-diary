@@ -1,9 +1,11 @@
 import { useState } from "react"
+import { useFireStroe } from "../../hooks/useFirestore";
 
-export default function DiaryForm() {
+export default function DiaryForm({ uid }) {
 
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
+    const { addDocument, response } = useFireStroe('diary');
 
     const handleDate = (event) => {
         if(event.target.id === "tit") {
@@ -16,6 +18,7 @@ export default function DiaryForm() {
     const handelSubmit = (event) => {
         event.preventDefault();
         console.log(title, text);
+        addDocument({uid, title, text});
     }
 
     return (
@@ -26,7 +29,7 @@ export default function DiaryForm() {
                     <label htmlFor="tit">일기 제목 : </label>
                     <input id="tit" type='text' required onChange={handleDate}/>
 
-                    <labe htmlFor="txt">일기 내용 : </labe>
+                    <label htmlFor="txt">일기 내용 : </label>
                     <textarea id="txt" type='text' required onChange={handleDate}/>
 
                     <button type="submit">저장하기</button>
