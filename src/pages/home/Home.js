@@ -7,7 +7,7 @@ import { useCollection } from '../../hooks/useCollection';
 export default function Home() {
 
     const { user } = useAuthContext();
-    const { document, error } = useCollection('diary');
+    const { document, error } = useCollection('diary', ["uid","==", user.uid]);
 
     return (
         <main className={styles.cont}>
