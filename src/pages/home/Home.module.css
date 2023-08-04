@@ -23,6 +23,8 @@
     color: #fff;
 }
 
+
+
 .side_menu input {
     display: block;
     width: 100%;
@@ -92,3 +94,39 @@
     padding: 12px 8px;
 }
 
+@media (max-width: 600px) {
+
+    nav {
+        display: block;
+        height: 150px;
+    }
+
+    h1 {
+        width: 50%
+    }
+
+    .cont {
+        display: block;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .side_menu form {
+        padding:20px;
+        height: 40%;
+    }
+    
+    .side_menu legend {
+        margin: 5px 0 5px 0;
+    }
+
+    .side_menu label {
+        margin: 5px 0 5px 0;
+        display: block;
+    }
+
+    .side_menu textarea {
+        height: 50px;
+        display: block;
+    }
+}

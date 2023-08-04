@@ -35,10 +35,10 @@ export default function DiaryForm({ uid }) {
             <form onSubmit={handelSubmit}>
                 <fieldset>
                     <legend>메모쓰기</legend>
-                    <label htmlFor="tit">일기 제목 : </label>
+                    <label htmlFor="tit">제목 : </label>
                     <input id="tit" type='text' value={title} required onChange={handleDate}/>
 
-                    <label htmlFor="txt">일기 내용 : </label>
+                    <label htmlFor="txt">내용 : </label>
                     <textarea id="txt" type='text' value={text} required onChange={handleDate}>
                     </textarea>
                     <button type="submit">저장하기</button>
