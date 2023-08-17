@@ -19,7 +19,7 @@ export default function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         login(email, password);
-    }
+    }       
 
     return (
         <form className={styles.login_form} onSubmit={handleSubmit}>
@@ -35,7 +35,11 @@ export default function Login() {
 
                 {!isPending && <button type='submit' className={styles.btn}>로그인</button>}
                 {isPending && <strong>로그인 중...</strong>}
-                {error && <strong>{error}</strong>}                
+                {error ==='Firebase: Error (auth/user-not-found).' ? 
+                    <strong style={{color:'red'}}>없는 계정입니다</strong>:
+                 error ==='Firebase: Error (auth/wrong-password).' ?    
+                    <strong style={{color:'red'}}>비밀 번호를 확인해주세요</strong>:
+                    <strong style={{color:'red'}}>{error}</strong>}      
             </fieldset>
         </form>
     )
